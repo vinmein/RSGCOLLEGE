@@ -561,3 +561,29 @@ ul.breadcrumb {
 	font-size: 15px;
 	color:#ff006a9a;
   } */
+
+  .pdfobject-container { height: 60rem; width:900px; border: 1rem solid rgba(0,0,0,.1); }
+
+
+  @media (max-width: 991px) {
+	.pdfobject-container {
+		width: 650px;
+	}
+  }
+
+  @media (max-width: 767px) {
+	.pdfobject-container {
+		width: 550px;
+	}
+  }
+
+
+  .tagfont{
+	  font-size: 8px;
+  }
+
+  .ntftxt{
+	font-size: 14px;
+	font-family: 'Arvo', serif;
+	text-align: justify;
+}
