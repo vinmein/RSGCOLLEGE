@@ -47,7 +47,7 @@ header .navbar .navbar-brand img, header.side-menu .logo img, header .sidebar-na
 	.navbar.navbar-dark.header-light
 	.navbar-nav
 	> .nav-item.dropdown.simple-dropdown:hover
-	> a {
+	> a,.nav-link:hover {
 	color: #f4d956 !important;
 	font-size: medium;
 }
@@ -586,4 +586,8 @@ ul.breadcrumb {
 	font-size: 14px;
 	font-family: 'Arvo', serif;
 	text-align: justify;
+}
+
+.nav-link .:hover{
+	color:#f4d956;
 }
