@@ -1978,7 +1978,7 @@
                         submenuObj.css( 'top', '-' + ( totalHeight - windowHeight ) + 'px' );
                     }
                 }
-                element.addClass( 'menu-left' );
+               // element.addClass( 'menu-left' );
             }
         }
     }
