@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta&family=Orelega+One&display=swap');
+/* font-family: 'Orelega One', cursive; */
 
 .brand-primary-color{
     color: #081e32;
@@ -100,8 +102,9 @@ header .container .collegename
   font-weight: bold;
 
   font-size: 30px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
   /* font-family: 'Raleway', sans-serif; */
+  font-family: 'Mukta', sans-serif;
   color: white;
 }
 @media (max-width: 991px) {
@@ -120,7 +123,7 @@ header .container .collegetamil
 font-weight: bold;
   font-size: 22px;
   color:#f4d956;
-
+  font-family: 'Mukta', sans-serif;
   /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
   /* font-family: 'Raleway', sans-serif; */
   /* color: white; */
@@ -147,9 +150,9 @@ header .container .collegesub
   /* font-variant: small-caps; */
   font-size: 22px;
   /* font-family: 'Raleway', sans-serif; */
-  font-family: 'Questrial', sans-serif;
+  /* font-family: 'Questrial', sans-serif; */
   color: white;
-  
+  font-family: 'Mukta', sans-serif;
   font-weight:bold;
 }
 @media (max-width: 991px) {
@@ -590,4 +593,8 @@ ul.breadcrumb {
 
 .nav-link .:hover{
 	color:#f4d956;
+}
+
+.listfont{
+	font-family: 'Arvo', serif;
 }

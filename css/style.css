@@ -101,7 +101,12 @@ button, button:focus, button:hover { outline: none; }
 ====================================== */
 
 /* font family */
-.alt-font { font-family: 'Poppins', sans-serif; }
+.alt-font { 
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'Arvo', serif;
+
+
+}
 .main-font { font-family: 'Roboto', sans-serif !important; }
 
 /* heading size */
