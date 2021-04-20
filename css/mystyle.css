@@ -567,21 +567,30 @@ ul.breadcrumb {
 	color:#ff006a9a;
   } */
 
-  .pdfobject-container { height: 60rem; width:900px; border: 1rem solid rgba(0,0,0,.1); }
+  .pdfobject-container { height: 60rem; width:750px; border: 1rem solid rgba(0,0,0,.1); margin-left:50px }
 
 
   @media (max-width: 991px) {
 	.pdfobject-container {
-		width: 650px;
+		width: 550px;
+margin-left: 20px;
 	}
   }
 
   @media (max-width: 767px) {
 	.pdfobject-container {
-		width: 550px;
+		width: 425px;
+		margin-left:10px;
 	}
   }
 
+
+  @media (max-width: 530px) {
+	.pdfobject-container {
+		width: 400px;
+		margin-left:0px;
+	}
+  }
 
   .tagfont{
 	  font-size: 8px;
