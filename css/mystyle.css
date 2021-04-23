@@ -617,3 +617,12 @@ margin-left: 20px;
 	font-size:13px;
 	font-family: 'Arvo', serif;
 }
+.titlefont{
+	font-size:24px
+}
+
+@media (max-width: 991px) {
+	.titlefont {
+	  font-size: 19px;
+	}
+  }
