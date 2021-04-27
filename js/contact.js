@@ -1,12 +1,13 @@
 (function($) {
     "use strict";
-    $(window).load(function(){
+    $(window).load(
+        function(){
       $('#submit-button').click(function (e) {
         e.preventDefault()
         var name = $("#name").val();
         var email = $("#email").val();
         var mobile = $("#mobile").val();
-        var msg = $("#comment").val();
+        var msg = $("#message").val();
   
         if(!name){
           $.toaster('Please enter your name', 'Missing Data', 'warning');
