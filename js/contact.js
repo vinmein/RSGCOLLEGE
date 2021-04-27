@@ -1,6 +1,6 @@
-(function($) {
-    "use strict";
-    $(window).load(
+// (function($) {
+//     "use strict";
+    $(window).on('load',
         function(){
       $('#submit-button').click(function (e) {
         e.preventDefault()
@@ -58,5 +58,5 @@
   
   
     });
-  })(jQuery);
+  // })(jQuery);
   
