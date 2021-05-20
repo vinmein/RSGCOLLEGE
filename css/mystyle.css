@@ -590,6 +590,12 @@ margin-left: 20px;
 		width: 400px;
 		margin-left:0px;
 	}
+
+	@media (max-width: 500px) {
+		.pdfobject-container {
+			width: 350px;
+			margin-left:0px;
+		}
   }
 
   .tagfont{
@@ -641,3 +647,26 @@ margin-left: 20px;
 	width:100%;
 	position:absolute;
 	}
+
+
+}
+
+#menu-outer .horizontal-list {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	line-height:30px;
+	font-size:16px;
+	border:1px solid 2px;
+	color:coral;
+}
+
+
+
+.btnlist{
+	width:200px;
+	background: #00d2ff;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #928DAB, #00d2ff);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #928DAB, #00d2ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
