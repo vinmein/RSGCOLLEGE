@@ -27,12 +27,12 @@
         }
   
   
-        var target = ["contact@higglerslab.com"]
-        $("#submit").prop('disabled', true)
+        var target = ["enquiry@rsgc.ac.in"]
+        $('button[type=submit], input[type=submit]').prop('disabled',true);
         var request = $.ajax({
           url: "https://cewti8xhnb.execute-api.us-east-1.amazonaws.com/Production/sendMail",
           method: "POST",
-          data: JSON.stringify({ body:{name: name, email: email,mobile:mobile, message: msg}, "template": "Templates/rsgctemplate.html", subject: `Mail from ${name}`, target: target, fromAddress: "contact@higglerslab.com" }),
+          data: JSON.stringify({ body:{name: name, email: email,mobile:mobile, message: msg}, "template": "Templates/rsgctemplate.html", subject: `Mail from ${name}`, target: target, fromAddress: "enquiry@rsgc.ac.in" }),
           contentType: "application/json",
           dataType: "json"
         });
