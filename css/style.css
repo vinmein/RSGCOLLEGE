@@ -54,7 +54,7 @@ html { font-size: 14px; }
 body { font-size: 15px; line-height: 30px; font-weight: 400; color: #242323; font-family: 'Roboto', sans-serif; padding: 0; margin: 0; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; word-break: break-word }
 body, html { -moz-osx-font-smoothing: grayscale; }
 a:hover, a:focus { text-decoration: none; outline: none; outline-offset:0; color: #0038e3; }
-a, a:active, a:focus { color: #828282; }
+a, a:active, a:focus { color: #0a0a0a; }
 a, .btn, input, textarea, select { transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; -webkit-transition: all 0.3s ease-in-out; -ms-transition: all 0.3s ease-in-out; -o-transition: all 0.3s ease-in-out; }
 img { max-width: 100%; height: auto; }
 video { background-size: cover; display: table-cell; vertical-align: middle; width: 100%; }
@@ -80,7 +80,7 @@ button, button:focus, button:hover { outline: none; }
 .main-content { z-index: 2; background-color: #fff; overflow: visible; position: relative; }
 
 ::selection { color: #000; background:#dbdbdb; }
-::-moz-selection { color:#a6a6a6; background:#dbdbdb; }
+::-moz-selection { color:#0a0a0a; background:#dbdbdb; }
 ::-webkit-input-placeholder { color: #a6a6a6; text-overflow: ellipsis; }
 ::-moz-placeholder { color: #a6a6a6; text-overflow: ellipsis; opacity:1; }
 :-ms-input-placeholder { color: #a6a6a6; text-overflow: ellipsis; opacity:1; }
