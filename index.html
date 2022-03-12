@@ -608,6 +608,7 @@ College ,rsgc,government college,Thanjavur,serfoji,Thanjavur pride,Rsgc.ac.in">
 					</div>
 				</div>
 			</div>
+
 		</nav>
 		<!-- end navigation -->
 
@@ -616,8 +617,20 @@ College ,rsgc,government college,Thanjavur,serfoji,Thanjavur pride,Rsgc.ac.in">
 			<marquee>
 				<ul style="display:flex;flex-direction: row;list-style: none;" class="listspace">
 
-					<li style="margin-left:20px"><a class="tickercolor" href="Documents/Forms/Sc Declaration Form.PDF"
-							target="_blank"><i class="fas fa-users" style="color:#f4d956;"></i> SC/ST/SCC Declaration 2022
+					<li style="margin-left:20px">
+
+
+
+
+
+
+
+
+
+						<a class="tickercolor" href="Documents/Forms/Sc Declaration Form.PDF" target="_blank"><i
+								class="fas fa-users" style="color:#f4d956;"></i> SC/ST/SCC Declaration 2022
+
+
 							Form <span
 								style="width:200px;height:100px;background:rgb(63, 2, 15);color: white;font-weight: bolder;">New</span></a>
 					</li>
@@ -877,9 +890,9 @@ College ,rsgc,government college,Thanjavur,serfoji,Thanjavur pride,Rsgc.ac.in">
 
 							<div
 								class="padding-30px-lr d-block d-sm-inline-block align-middle border-right border-color-medium-gray lg-padding-15px-lr xs-no-border-right xs-margin-10px-bottom">
-								<a href="https://rsgccoe.com/student-login.php"
-									class="section-link btn alt-font font-weight-500 line-height-18px d-block">
-									Exam Portal
+								<a href="#" class="section-link btn alt-font font-weight-500 line-height-18px d-block"
+									data-toggle="modal" data-target="#resultModal">
+									Result
 								</a>
 							</div>
 
@@ -1802,7 +1815,8 @@ College ,rsgc,government college,Thanjavur,serfoji,Thanjavur pride,Rsgc.ac.in">
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 		aria-hidden="true">
 		<div class="modal-dialog" role="document">
-			<div class="modal-content">
+			<div class="modal-content" style="
+			border-radius: 20px !important">
 				<div class="modal-header">
 					<h6 class="modal-title" id="exampleModalLabel">Nominal Roll for UG/PG 2021-2022</h6>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -1835,6 +1849,68 @@ College ,rsgc,government college,Thanjavur,serfoji,Thanjavur pride,Rsgc.ac.in">
 		</div>
 	</div>
 
+	<div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content" style="
+			border-radius: 20px !important">
+				<div class="modal-header">
+					<h6 class="modal-title " id="resultModalLabel" style="font-size:20px;"><span
+						style="color:red">மாணவர்கள் தேர்வு முடிவுகள்
+						அறியும் விதம்:</span></h6>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-7 col-sm-12 col-md-12">
+					<ul style="font-family: 'Arvo', serif;">
+
+						<li style="font-size: 16px;list-style-position: inside;" class="mt-2">
+							Type<span style="color:#ac196a"> rsgccoe.com </span>on address bar or follow the link:<br><a href="http://www.rsgccoe.com/student-login.php"><span style="color:#ac196a;font-size:14px;margin-left:20px">http://www.rsgccoe.com/student-login.php</span>	</a>
+						</li>
+						<li style="font-size: 16px;list-style-position: inside;" class="mt-2">
+							<span style="color:#ac196a">		Click Student Login</span>
+						</li>
+						<li style="font-size: 16px;list-style-position: inside;" class="mt-2">Enter <span style="color:#ac196a">register number</span> as user name and <span style="color:#ac196a"> date of birth</span> 
+							(dd-mm-yyyy) as password </li>
+						<li style="font-size: 16px;list-style-position: inside;" class="mt-2">
+							Select<span style="color:#ac196a"> Examination->Result->Semester</span><br>
+							
+						<li style="font-size: 16px;list-style-position: inside;" class="mt-2">
+							If you want to print the result click the <span style="color:#ac196a"> Print Result</span>
+						</li>
+
+
+					</ul>
+					</div>
+					<div class="col-lg-5 col-sm-12 col-md-12">
+						<div id="bm" style="width:350px;height:350px;justify-items: center;align-content: center;float:right"></div>
+					</div>
+				</div>
+					<!-- <p style="font-size: 16px;" class="mt-2">
+					Type rsgccoe.com on address bar or follow the link:https://www.rsgccoe.com/student-login.php</p>
+				<p style="font-size: 16px;" class="mt-2">
+					Click Student Login
+				</p>
+				<p style="font-size: 20px;" class="mt-4">Enter register number as user name and date of birth (dd-mm-yyyy) as password (eg: 27-04-2003)</p>
+				<p style="font-size: 16px;" class="mt-2">
+					Select Examination<br>
+select Result<br>
+select semester</p>
+				<p style="font-size: 16px;" class="mt-2">
+					If you want to print the result click the Print Result.
+				</p> -->
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
@@ -1850,6 +1926,9 @@ College ,rsgc,government college,Thanjavur,serfoji,Thanjavur pride,Rsgc.ac.in">
 
 <script type="text/javascript" src="revolution/js/jquery.themepunch.tools.min.js"></script>
 <script type="text/javascript" src="revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script src="js/script.js"></script>
+<script src="js/lottie-player.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.0/lottie_html.js"></script>
 
 <!-- typewriter and coming soon add on -->
 <script type="text/javascript"
@@ -1863,6 +1942,7 @@ College ,rsgc,government college,Thanjavur,serfoji,Thanjavur pride,Rsgc.ac.in">
 <script type="text/javascript" src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
 <script type="text/javascript" src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
 <script type="text/javascript" src="revolution/js/extensions/revolution.extension.video.min.js"></script>
+
 <script type="text/javascript">
 	var revapi263, tpj;
 	(function () {
@@ -1981,4 +2061,13 @@ College ,rsgc,government college,Thanjavur,serfoji,Thanjavur pride,Rsgc.ac.in">
 <script type="text/javascript"
 	src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+	<script type="text/javascript">
+		var animation = bodymovin.loadAnimation({
+		  container: document.getElementById('bm'),
+		  renderer: 'svg',
+		  loop: true,
+		  autoplay: true,
+		  path: 'img/json/exams.json'
+		})
+</script>	
 </html>
