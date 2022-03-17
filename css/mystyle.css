@@ -598,16 +598,33 @@ ul.breadcrumb {
   } */
 
   .pdfobject-container { height: 60rem; width:750px; border: 1rem solid rgba(0,0,0,.1); margin-left:50px }
-
+/* 
    .indexpdf{
 	margin-left:0px !important;
-	height: 400px !important;
+	height: 350px !important;
 
-   }
+   } */
+   @media (max-width: 1920px) {
+	.pdfobject-container {
+		width: 850px;
+margin-left: 0px;
+height: 350px !important;
+	}
+  }
+
+   @media (max-width: 1336px) {
+	.pdfobject-container {
+		width: 700px;
+margin-left: 0px;
+height: 350px !important;
+	}
+  }
+
   @media (max-width: 991px) {
 	.pdfobject-container {
 		width: 550px;
 margin-left: 20px;
+height: 350px !important;
 	}
   }
 
