@@ -599,7 +599,11 @@ ul.breadcrumb {
 
   .pdfobject-container { height: 60rem; width:750px; border: 1rem solid rgba(0,0,0,.1); margin-left:50px }
 
+   .indexpdf{
+	margin-left:0px !important;
+	height: 400px !important;
 
+   }
   @media (max-width: 991px) {
 	.pdfobject-container {
 		width: 550px;
