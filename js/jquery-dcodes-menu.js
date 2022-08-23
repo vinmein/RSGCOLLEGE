@@ -24,11 +24,11 @@
         var fadeSpeed=500;
         $("#dc_expr_menu").hover(
           function(){ //mouse over
-            $('#dc_expr_menu .dc_em_label').fadeTo(fadeSpeed, 1);
+            $('#dc_expr_menu .dc_em_label').fadeTo(fadeSpeed, .75);
             $("#dc_expr_menu .dc_em_body").fadeIn(fadeSpeed);
           },
           function(){ //mouse out
-            $('#dc_expr_menu .dc_em_label').fadeTo(fadeSpeed, 0.75);
+            $('#dc_expr_menu .dc_em_label').fadeTo(fadeSpeed, 1);
             $("#dc_expr_menu .dc_em_body").fadeOut(fadeSpeed);
           }
         );
