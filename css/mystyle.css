@@ -793,7 +793,7 @@ ul.breadcrumb li a:hover {
 	background: #f4d956 !important;
 
 	/* background: rgb(99, 99, 99); */
-		-webkit-border-top-right-radius: 2px;
+	-webkit-border-top-right-radius: 2px;
 	-webkit-border-bottom-right-radius: 2px;
 	-moz-border-radius-topright: 2px;
 	-moz-border-radius-bottomright: 2px;
@@ -805,7 +805,7 @@ ul.breadcrumb li a:hover {
 
 #dc_expr_menu .dc_em_body {
 	display: none;
-	margin-top:5px;
+	margin-top: 5px;
 }
 
 #dc_expr_menu .dc_em_body .menu_item {
@@ -822,9 +822,10 @@ ul.breadcrumb li a:hover {
 }
 
 #dc_expr_menu .dc_em_body a.menu_item:hover {
-	background: #f4d956 ;
+	background: #f4d956;
 	color: rgb(53, 40, 40)
 }
+
 /* 
 @media screen and (max-width: 1200px) {
 	#dc_expr_menu {
@@ -834,18 +835,17 @@ ul.breadcrumb li a:hover {
 } */
 
 
-@media screen and (min-device-width: 768px) and (max-device-width: 991px) 
-	{
+@media screen and (min-device-width: 768px) and (max-device-width: 991px) {
 	#dc_expr_menu {
 		top: 200px;
-		
+
 	}
 }
 
-@media screen and (min-device-width: 481px) and (max-device-width: 768px) { 
+@media screen and (min-device-width: 481px) and (max-device-width: 768px) {
 
 	#dc_expr_menu {
 		top: 21px;
-		
+
 	}
 }
