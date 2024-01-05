@@ -287,9 +287,23 @@ header .container .collegesub {
 }
 
 /* Display the columns below each other instead of side by side on small screens */
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 576px) {
 	.column {
-		width: 100%;
+		width: 50%;
+		display: block;
+	}
+}
+
+@media only screen and (max-width: 768px) and (min-width: 567px) {
+	.column {
+		width: 33%;
+		display: block;
+	}
+}
+
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+	.column {
+		width: 25%;
 		display: block;
 	}
 }
