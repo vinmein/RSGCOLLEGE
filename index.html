@@ -70,8 +70,14 @@
 		.responsive {
 			width: 100%;
 			height: auto;
+			max-height: 80vh; /* Adjust this value as needed */
+			object-fit: contain;
 		}
-
+		.modal-content {
+			max-height: 90vh; /* Adjust this value as needed */
+		}
+	
+	
 		.padding0 {
 			padding-left: 0px !important;
 			padding-right: 10px !important;
@@ -81,14 +87,14 @@
 </head>
 
 <body>
-	<!-- <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modalfirst" style="overflow: hidden; ;">
+	<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modalfirst" style="overflow: hidden; ;">
     <div class="modal-dialog modal-lg" >
       <div class="modal-content"  >
       
-        <img src="img/admission/2022.jpeg"  width="100%"  class="responsive">  
+        <img src="img/Event/convocombined.jpg"  width="100%"  class="responsive">  
       </div>
     </div>
-  </div>  -->
+  </div> 
 
 	<!-- <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modalfirst" style="overflow: hidden; ;">
     <div class="modal-dialog modal-lg" >
@@ -881,12 +887,18 @@
 			<marquee>
 				<ul style="display:flex;flex-direction: row;list-style: none;" class="listspace">
 					<li><a class="tickercolor"
-							href="Documents/Notification/Circulars/Nov-24 Semester Exam Circular .pdf"
-							target="_blank"><i class="fab fa-wpforms" aria-hidden="true"></i>November 2024 Semester Exam
-							Circular
+							href="https://rsgccollege.s3.ap-south-1.amazonaws.com/Documents/Notification/Convocation/convocation2025.pdf"
+							target="_blank"><i class="fa fa-graduation-cap" aria-hidden="true" style="padding-right: 10px;"></i>65<sup>th</sup>Convocation 2025 on <span style="color:#f4d956">13.04.2025</span> 
 							<span
 								style="width:200px;height:100px;background:rgb(170, 64, 47);color: white;font-weight: bolder;">New</span></a>
 					</li>
+					<li style="margin-left:20px"><a class="tickercolor"
+						href="https://rsgccollege.s3.ap-south-1.amazonaws.com/Documents/Notification/Timetable/2025/arrear/exam+Time+Table-April-2025.pdf"
+
+						target="_blank"><i class="fab fa-wpforms" aria-hidden="true" style="padding-right: 10px;"></i>	CIA Improvement Exam Time Table-April-2025
+						<span
+							style="width:200px;height:100px;background:rgb(170, 64, 47);color: white;font-weight: bolder;">New</span></a>
+				</li>
 
 
 
@@ -1425,8 +1437,8 @@
 						<div class="row" style="padding-bottom:20px">
 							<div class="col-lg-12">
 								<a class="btn btn-primary btn-lg" style="width:100%"
-									href="documents/Notification/Circulars/Nov-24 Semester Exam Circular .pdf">
-									November 2024 Semester Exam Circular<span
+									href="https://rsgccollege.s3.ap-south-1.amazonaws.com/Documents/Notification/Timetable/2025/arrear/exam+Time+Table-April-2025.pdf">
+									CIA Improvement Exam Time Table-April-2025<span
 										style="background-color: #c00404;color:white;font-size:14px;margin-left:5px">
 										New</span> </a>
 							</div>
@@ -3089,6 +3101,12 @@ border-radius: 20px !important">
 		window.onload = function () {
 			fetchData();
 		};
+	</script>
+
+	<script>
+		$(document).ready(function() {
+			$('#modalfirst').modal('show');
+		});
 	</script>
 
 </body>
