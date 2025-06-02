@@ -156,13 +156,30 @@
         object-fit: contain;
       }
       .modal-content {
-        max-height: 90vh; /* Adjust this value as needed */
+        max-height: 150vh; /* Adjust this value as needed */
       }
 
       .padding0 {
         padding-left: 0px !important;
         padding-right: 10px !important;
       }
+      .ranklisttitle{
+        font-size: 20px;
+      }
+      
+      @media (max-width: 400px) {
+        .ranklistdata li{
+          font-size: 12px;      
+        }
+        .ranklisttitle{
+          font-size: 14px;
+        }
+        .modal-content {
+          max-height: 200vh;
+      }
+
+      }
+     
     </style>
   </head>
 
@@ -1282,7 +1299,7 @@
       <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true"
 			style="z-index: 100000000;">
 			<div class="modal-dialog modal-dialog-centered modal-lg">
-				<div class="modal-content" style="max-height: 80vh;overflow-y: auto;">
+				<div class="modal-content" style="max-height: 150vh;overflow-y: auto;">
 					<div class="modal-header">
 						<h5 class="modal-title" id="imageModalLabel"
 							style="text-align: center;font-weight:bold;font-size:18px">ADMISSION 2024</h5>
@@ -3068,63 +3085,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <div class="row"> 
-              <div class="col-1 col-lg-1 col-md-1"></div>
-
-              <div
-                class="col-9 col-lg-9 col-md-9"
-                style="font-variant: small-caps; font-family: Arvo"
-              >
-                <b style="font-size: 20px"
-                  >Special Quota
-                  <span style="color: #c00404; font-size: 12px"
-                    >Click to Download</span
-                  ></b
-                >
-
-                <ul style="list-style-type: square">
-                  <li>
-                    <a
-                      href="https://rsgccollege.s3.ap-south-1.amazonaws.com/Documents/admission/2025/studentList/securityforces.pdf"
-                      >Security Forces Quota</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="https://rsgccollege.s3.ap-south-1.amazonaws.com/Documents/admission/2025/studentList/disabled.pdf"
-                      >Differently Abled</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="https://rsgccollege.s3.ap-south-1.amazonaws.com/Documents/admission/2025/studentList/ex-service.pdf"
-                      >Ex Serviceman</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="https://rsgccollege.s3.ap-south-1.amazonaws.com/Documents/admission/2025/studentList/ncc.pdf"
-                      >NCC</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="https://rsgccollege.s3.ap-south-1.amazonaws.com/Documents/admission/2025/studentList/andaman+Nicobar.pdf"
-                      >Nicobar</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="https://rsgccollege.s3.ap-south-1.amazonaws.com/Documents/admission/2025/studentList/sports.pdf"
-                      >Sports</a
-                    >
-                  </li>
-                </ul>
-              </div>
-           
-              <div class="col-2 col-lg-2 col-md-2"></div>
-            </div>
-            <div class="row mt-2">
+            <div class="row ">
               <div class="col-1 col-lg-1 col-md-1"></div>
 
               
@@ -3132,7 +3093,7 @@
                 class="col-5 col-lg-5 col-md-5"
                 style="font-variant: small-caps; font-family: Arvo"
               >
-                <b style="font-size: 20px"
+                <b class="ranklisttitle" 
                   >General Rank List
                   <span style="color: #c00404; font-size: 12px"
                     >Click to Download</span
@@ -3147,7 +3108,7 @@
 
 							<b style="font-size: 20px; margin-top:30px">Arts Rank List <span
 									style="color:#c00404;font-size: 12px;">Click to Download</span></b> -->
-                <ul style="list-style-type: square">
+                <ul style="list-style-type: square" class="ranklistdata">
                   <li>
                     <a
                       href="https://rsgccollege.s3.ap-south-1.amazonaws.com/Documents/admission/2025/studentList/general/Biochem+-+Shift+-+I.pdf"
@@ -3221,16 +3182,8 @@
               style="font-variant: small-caps; font-family: Arvo"
             >
               
-
-              <!-- <ul style="list-style-type: square;">
-              <li><a href="./Documents/admission/2022/RankList/General Rank List.pdf">Overall General
-                  RankList</a></li>
-
-
-            </ul>
-
-            <b style="font-size: 20px; margin-top:30px">Arts Rank List <span
-                style="color:#c00404;font-size: 12px;">Click to Download</span></b> -->
+<ul class="ranklistdata" style="list-style-type: square">
+         
                 <li>
                   <a
                     href="https://rsgccollege.s3.ap-south-1.amazonaws.com/Documents/admission/2025/studentList/general/Statistics.pdf"
@@ -3299,6 +3252,63 @@
             </div>
               <div class="col-2 col-lg-2 col-md-2"></div>
             </div>
+            <div class="row mt-2"> 
+              <div class="col-1 col-lg-1 col-md-1"></div>
+
+              <div
+                class="col-9 col-lg-9 col-md-9"
+                style="font-variant: small-caps; font-family: Arvo"
+              >
+                <b  class="ranklisttitle" 
+                  >Special Quota
+                  <span style="color: #c00404; font-size: 12px"
+                    >Click to Download</span
+                  ></b
+                >
+
+                <ul style="list-style-type: square" class="ranklistdata">
+                  <li>
+                    <a
+                      href="https://rsgccollege.s3.ap-south-1.amazonaws.com/Documents/admission/2025/studentList/securityforces.pdf"
+                      >Security Forces Quota</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://rsgccollege.s3.ap-south-1.amazonaws.com/Documents/admission/2025/studentList/disabled.pdf"
+                      >Differently Abled</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://rsgccollege.s3.ap-south-1.amazonaws.com/Documents/admission/2025/studentList/ex-service.pdf"
+                      >Ex Serviceman</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://rsgccollege.s3.ap-south-1.amazonaws.com/Documents/admission/2025/studentList/ncc.pdf"
+                      >NCC</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://rsgccollege.s3.ap-south-1.amazonaws.com/Documents/admission/2025/studentList/andaman+Nicobar.pdf"
+                      >Nicobar</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://rsgccollege.s3.ap-south-1.amazonaws.com/Documents/admission/2025/studentList/sports.pdf"
+                      >Sports</a
+                    >
+                  </li>
+                </ul>
+              </div>
+           
+              <div class="col-2 col-lg-2 col-md-2"></div>
+            </div>
+            
           </div>
           <div class="modal-footer">
             <button
