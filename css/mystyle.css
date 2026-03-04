@@ -544,7 +544,7 @@ overlay Quicklink */
 .data-tabs a,
 a:active,
 a:focus {
-	color: #f3dadf;
+	color: #0a3a31;
 }
 
 @media (max-width: 768px) {
