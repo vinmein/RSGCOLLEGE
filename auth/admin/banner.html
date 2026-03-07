@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Banners - RSGC</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #fcfcfc;
+            padding-top: 40px;
+        }
+
+        .section-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            margin-bottom: 40px;
+        }
+
+        .section-header h4 {
+            color: #3b5998;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .divider {
+            height: 1px;
+            background: #e0e0e0;
+            margin: 10px 0 20px 0;
+        }
+
+        /* Tab Toggles */
+        .upload-type-toggles {
+            display: flex;
+            background: #f1f3f4;
+            border-radius: 8px;
+            padding: 5px;
+            margin-bottom: 25px;
+            gap: 5px;
+        }
+
+        .upload-type-toggles .btn {
+            border-radius: 6px;
+            font-weight: 500;
+            flex: 1;
+            padding: 10px;
+            border: none;
+            color: #5f6368;
+            transition: all 0.2s ease;
+        }
+
+        .upload-type-toggles .btn.active {
+            background: white;
+            color: #1a73e8;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+            font-weight: 600;
+        }
+
+        .upload-type-toggles .btn:hover:not(.active) {
+            background: #e8eaed;
+        }
+
+        /* Input styling */
+        .form-label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 0.2rem;
+        }
+
+        .form-label small {
+            font-weight: 400;
+            color: #777;
+        }
+
+        /* Banner Cards Fixed Height */
+        .banner-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            overflow: hidden;
+            background: white;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .banner-media-container {
+            width: 100%;
+            height: 180px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .banner-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pdf-preview {
+            color: #d32f2f;
+            font-size: 3rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .banner-card-body {
+            padding: 12px 15px;
+            flex-grow: 1;
+        }
+
+        .banner-card-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .badge-video {
+            background-color: #00b4d8;
+            color: white;
+        }
+
+        .badge-pdf {
+            background-color: #d32f2f;
+            color: white;
+        }
+
+        .badge-active {
+            background-color: #20c997;
+            color: white;
+        }
+
+        .badge-inactive {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .banner-card-footer {
+            padding: 0;
+            border-top: none;
+            display: flex;
+        }
+
+        .banner-card-footer .btn {
+            border-radius: 0;
+            width: 50%;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 10px;
+        }
+
+        .btn-submit-green {
+            background-color: #198754;
+            color: white;
+            border: none;
+        }
+
+        .btn-submit-green:hover {
+            background-color: #157347;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 style="font-weight: 600; color: #333;">Carousel Administration</h2>
+            <button class="btn btn-outline-secondary btn-sm" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>
+                Logout</button>
+        </div>
+
+        <!-- Add Banner Section -->
+        <div class="section-container">
+            <div class="section-header">
+                <h4><i class="fas fa-layer-group" style="color:#f25a5a;"></i> Add Banner</h4>
+            </div>
+            <div class="divider"></div>
+
+            <div class="upload-type-toggles mb-4">
+                <button type="button" class="btn active" id="modeImageBtn">
+                    <i class="fas fa-image text-primary"></i> Image
+                </button>
+                <button type="button" class="btn" id="modeVideoBtn">
+                    <i class="fab fa-youtube text-danger"></i> YouTube
+                </button>
+                <button type="button" class="btn" id="modePdfBtn">
+                    <i class="fas fa-file-pdf text-danger"></i> PDF Document
+                </button>
+            </div>
+
+            <form id="uploadForm">
+                <input type="hidden" id="uploadMode" value="image">
+
+                <div class="mb-4" id="imageInputContainer">
+                    <label for="bannerImage" class="form-label">Select Image <small>(Recommended:
+                            1920x600)</small></label>
+                    <input class="form-control" type="file" id="bannerImage" accept="image/*">
+                </div>
+
+                <div class="mb-4" id="videoInputContainer" style="display: none;">
+                    <label for="bannerVideo" class="form-label">YouTube Video ID <small>(Overrides image and shows
+                            inside carousel slide)</small></label>
+                    <input type="text" class="form-control" id="bannerVideo" placeholder="e.g. NG1RJStAqlE">
+                </div>
+
+                <div class="mb-4" id="pdfInputContainer" style="display: none;">
+                    <label for="bannerPdf" class="form-label">Select PDF Document <small>(Will be embedded inside the
+                            carousel)</small></label>
+                    <input class="form-control" type="file" id="bannerPdf" accept="application/pdf">
+                </div>
+
+                <div class="mb-4">
+                    <label for="bannerLink" class="form-label">Destination Link <small>(Optional - Where the user goes
+                            when clicking the banner image)</small></label>
+                    <input type="url" class="form-control" id="bannerLink" placeholder="https://example.com">
+                </div>
+
+                <div id="uploadMsg" class="mb-3" style="display: none;"></div>
+                <button type="submit" class="btn btn-submit-green w-100" id="uploadBtn">Submit</button>
+            </form>
+        </div>
+
+        <!-- Current Banners Section -->
+        <div class="section-container" style="background: transparent; box-shadow: none; padding: 0;">
+            <div class="d-flex justify-content-center">
+                <div class="section-header text-center w-100">
+                    <h4 class="justify-content-center"><i class="fas fa-images text-warning"></i> Current Banners</h4>
+                    <div class="divider"></div>
+                </div>
+            </div>
+
+            <div class="row g-4" id="bannersGrid">
+                <!-- Banners will be rendered here -->
+            </div>
+
+            <div id="loadingMsg" class="text-center mt-3 text-muted">Loading banners...</div>
+        </div>
+    </div>
+
+    <!-- Supabase JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // ** IMPORTANT: Replace these with your actual Supabase URL and Anon Key **
+        const SUPABASE_URL = 'https://yfbwcljxrsktjroctghc.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlmYndjbGp4cnNrdGpyb2N0Z2hjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI2OTQyNTgsImV4cCI6MjA4ODI3MDI1OH0.vi2C8OYjrpuAhLY6Awav04yMPAKpdjYB7tPsVPd_BHI';
+        const BUCKET_NAME = 'sliderimages';
+
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // Auth Check
+        window.addEventListener('DOMContentLoaded', async () => {
+            const { data: { session } } = await supabaseClient.auth.getSession();
+            if (!session) {
+                window.location.href = 'login.html';
+                return;
+            }
+            loadBanners();
+        });
+
+        // Logout
+        document.getElementById('logoutBtn').addEventListener('click', async () => {
+            await supabaseClient.auth.signOut();
+            window.location.href = 'login.html';
+        });
+
+        // UI Toggles
+        const modeImageBtn = document.getElementById('modeImageBtn');
+        const modeVideoBtn = document.getElementById('modeVideoBtn');
+        const modePdfBtn = document.getElementById('modePdfBtn');
+        const uploadMode = document.getElementById('uploadMode');
+        const imageInputContainer = document.getElementById('imageInputContainer');
+        const videoInputContainer = document.getElementById('videoInputContainer');
+        const pdfInputContainer = document.getElementById('pdfInputContainer');
+        const fileInput = document.getElementById('bannerImage');
+        const pdfInput = document.getElementById('bannerPdf');
+
+        function setActiveTab(btn, mode) {
+            [modeImageBtn, modeVideoBtn, modePdfBtn].forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            uploadMode.value = mode;
+
+            imageInputContainer.style.display = mode === 'image' ? 'block' : 'none';
+            videoInputContainer.style.display = mode === 'video' ? 'block' : 'none';
+            pdfInputContainer.style.display = mode === 'pdf' ? 'block' : 'none';
+        }
+
+        modeImageBtn.addEventListener('click', () => setActiveTab(modeImageBtn, 'image'));
+        modeVideoBtn.addEventListener('click', () => setActiveTab(modeVideoBtn, 'video'));
+        modePdfBtn.addEventListener('click', () => setActiveTab(modePdfBtn, 'pdf'));
+
+        // Upload Form Submit
+        document.getElementById('uploadForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('uploadBtn');
+            const msg = document.getElementById('uploadMsg');
+            const mode = uploadMode.value;
+            const videoInput = document.getElementById('bannerVideo').value.trim();
+            const linkInput = document.getElementById('bannerLink').value.trim();
+
+            btn.disabled = true;
+            btn.textContent = '...Processing...';
+            msg.style.display = 'none';
+
+            try {
+                let imageUrl = null;
+                let pdfUrl = null;
+                let finalLink = linkInput || null;
+
+                if (mode === 'image') {
+                    if (fileInput.files.length === 0) throw new Error("Please select an image file.");
+                    const file = fileInput.files[0];
+                    const fileName = `${Date.now()}.${file.name.split('.').pop()}`;
+                    const filePath = `banners/${fileName}`;
+
+                    const { error } = await supabaseClient.storage.from(BUCKET_NAME).upload(filePath, file);
+                    if (error) throw error;
+
+                    const { data } = supabaseClient.storage.from(BUCKET_NAME).getPublicUrl(filePath);
+                    imageUrl = data.publicUrl;
+
+                } else if (mode === 'pdf') {
+                    if (pdfInput.files.length === 0) throw new Error("Please select a PDF file.");
+                    const file = pdfInput.files[0];
+                    if (file.type !== "application/pdf") throw new Error("File must be a valid PDF.");
+
+                    const fileName = `pdf_${Date.now()}.pdf`;
+                    const filePath = `banners/${fileName}`;
+
+                    const { error } = await supabaseClient.storage.from(BUCKET_NAME).upload(filePath, file);
+                    if (error) throw error;
+
+                    const { data } = supabaseClient.storage.from(BUCKET_NAME).getPublicUrl(filePath);
+                    pdfUrl = data.publicUrl;
+                    // For the frontend, let's also tag the link column or use a dedicated column. 
+                    // Using pdf_url if the column exists in db. Otherwise we'll fallback to `pdf:url` format in the link column.
+
+                } else if (mode === 'video') {
+                    if (!videoInput) {
+                        throw new Error("Please provide a YouTube Video ID.");
+                    }
+                    // Extract Video ID if they pasted a full URL
+                    let extractedId = videoInput;
+                    const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i;
+                    const match = videoInput.match(regex);
+                    if (match && match[1]) {
+                        extractedId = match[1];
+                    }
+
+                    // Prefix the video id so the frontend carousel code knows it's a video
+                    finalLink = "youtube:" + extractedId;
+                    // Use a thumbnail of the video as the image URL
+                    imageUrl = `https://img.youtube.com/vi/${extractedId}/maxresdefault.jpg`;
+                }
+
+                // 3. Insert into Table
+                // Note: The user mentioned pdf_url column. If it exists we insert there.
+                // If not, we fall back to link: "pdf:" schema.
+                const payload = {
+                    image_url: imageUrl,
+                    link: finalLink,
+                    status: true
+                };
+
+                if (mode === 'pdf') {
+                    // We assign to pdf_url. If Postgres throws an error, the user needs to `ALTER TABLE banners ADD COLUMN pdf_url text;`
+                    payload.pdf_url = pdfUrl;
+                    payload.image_url = null; // Clear image_url if it's a PDF
+                    payload.link = finalLink; // Keep the link if provided for PDF
+                }
+
+                const { error: insertError } = await supabaseClient
+                    .from('banners')
+                    .insert([payload]);
+
+                if (insertError) throw insertError;
+
+                // Success
+                msg.textContent = 'Banner added successfully!';
+                msg.className = 'text-success mb-3';
+                msg.style.display = 'block';
+
+                document.getElementById('uploadForm').reset();
+                if (mode === 'video' || mode === 'pdf') modeImageBtn.click(); // Reset to standard insert
+
+                loadBanners(); // Reload grid
+
+            } catch (err) {
+                msg.textContent = err.message;
+                msg.className = 'text-danger mb-3';
+                msg.style.display = 'block';
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Submit';
+            }
+        });
+
+        // Load Banners
+        async function loadBanners() {
+            const grid = document.getElementById('bannersGrid');
+            const loadingMsg = document.getElementById('loadingMsg');
+            loadingMsg.style.display = 'block';
+            grid.innerHTML = '';
+
+            const { data, error } = await supabaseClient
+                .from('banners')
+                .select('*')
+                .order('created_at', { ascending: false });
+
+            loadingMsg.style.display = 'none';
+
+            if (error) {
+                grid.innerHTML = `<div class="col-12"><div class="alert alert-danger">Error loading banners: ${error.message}</div></div>`;
+                return;
+            }
+
+            if (data.length === 0) {
+                grid.innerHTML = '<div class="col-12"><div class="text-center text-muted">No banners found. Add one above!</div></div>';
+                return;
+            }
+
+            data.forEach(banner => {
+                const isVideo = banner.link && banner.link.startsWith('youtube:');
+                const isPdf = !!banner.pdf_url;
+
+                const col = document.createElement('div');
+                col.className = 'col-12 col-md-6 col-lg-4';
+
+                let toggleBtnClass = banner.status ? 'btn-success' : 'btn-secondary';
+                let toggleBtnText = banner.status ? 'Active' : 'Inactive';
+
+                let mediaVisual = '';
+                if (isPdf) {
+                    mediaVisual = `<div class="pdf-preview"><i class="fas fa-file-pdf"></i></div>`;
+                } else {
+                    mediaVisual = `<img src="${banner.image_url}" class="banner-card-img" alt="Banner Image">`;
+                }
+
+                col.innerHTML = `
+                    <div class="banner-card">
+                        <div class="banner-media-container">
+                            ${mediaVisual}
+                        </div>
+                        <div class="banner-card-body">
+                            <div class="banner-card-info">
+                                <span>ID: ${banner.id}</span>
+                                <div>
+                                    ${banner.status
+                        ? '<span class="badge badge-active">Active</span>'
+                        : '<span class="badge badge-inactive">Inactive</span>'}
+                                    ${isVideo ? '<span class="badge badge-video ms-1"><i class="fas fa-play"></i> Video</span>' : ''}
+                                    ${isPdf ? '<span class="badge badge-pdf ms-1"><i class="fas fa-file-pdf"></i> PDF</span>' : ''}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="banner-card-footer">
+                            <button class="btn ${toggleBtnClass}" onclick="toggleStatus(${banner.id}, ${banner.status})">
+                                ${toggleBtnText}
+                            </button>
+                            <button class="btn btn-danger" onclick="deleteBanner(${banner.id})" title="Delete">
+                                 <i class="fas fa-trash-alt"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(col);
+            });
+        }
+
+        // Toggle Status
+        window.toggleStatus = async (id, currentStatus) => {
+            const { error } = await supabaseClient
+                .from('banners')
+                .update({ status: !currentStatus })
+                .eq('id', id);
+            if (!error) loadBanners();
+            else alert('Error updating status: ' + error.message);
+        };
+
+        // Delete Banner
+        window.deleteBanner = async (id) => {
+            if (!confirm('Are you sure you want to delete this banner?')) return;
+            const { error } = await supabaseClient
+                .from('banners')
+                .delete()
+                .eq('id', id);
+            if (!error) loadBanners();
+            else alert('Error deleting banner: ' + error.message);
+        };
+    </script>
+</body>
+
+</html>
