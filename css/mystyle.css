@@ -896,3 +896,47 @@ ul.breadcrumb li a:hover {
 		margin-right: 0;
 	}
 }
+
+/* CSS Ticker Styles */
+.ticker-container {
+	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
+	background-color: #081e32;
+	display: flex;
+	align-items: center;
+	height: 40px;
+}
+
+.ticker-content {
+	display: inline-block;
+	white-space: nowrap;
+	padding-left: 100%;
+	animation: ticker-move 30s linear infinite;
+}
+
+.ticker-content:hover {
+	animation-play-state: paused;
+}
+
+@keyframes ticker-move {
+	0% {
+		transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+.listspc {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: inline-block;
+}
+
+.listspc li {
+	display: inline-block;
+	margin-right: 50px;
+}
