@@ -1504,13 +1504,15 @@
         /****** Hide side menu on scroll ******/
         if( scrollPos >= 200 && getWindowWidth() > menuBreakPoint ) {
 
-            // Close all dropdown
+            // Close all dropdown (disabled to allow scrolling the page to see lengthy menus)
+            /*
             $( '.dropdown' ).each( function () {
                 var _this = $( this );
                 _this.trigger( 'mouseleave' );
                 _this.removeClass( 'show' );
                 _this.children( '.dropdown-menu' ).removeClass( 'show' );
             });
+            */
 
             // Close all menu
             if ( $( '.navbar-collapse' ).hasClass( 'show') ) {
