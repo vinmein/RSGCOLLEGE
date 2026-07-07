@@ -148,17 +148,16 @@
         }
 
         .banner-card-footer {
-            padding: 0;
-            border-top: none;
+            padding: 12px 15px;
+            border-top: 1px solid #f1f3f4;
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fafafa;
         }
 
-        .banner-card-footer .btn {
-            border-radius: 0;
-            width: 50%;
-            font-size: 0.9rem;
-            font-weight: 500;
-            padding: 10px;
+        .form-check-input {
+            cursor: pointer;
         }
 
         .btn-submit-green {
@@ -268,6 +267,20 @@
                 window.location.href = 'login.html';
                 return;
             }
+            
+            // RBAC: Managers cannot access the banner page
+            const { data: userData } = await supabaseClient
+                .from('users')
+                .select('role')
+                .eq('uid', session.user.id)
+                .single();
+                
+            const role = userData?.role || 'admin';
+            if (role === 'manager') {
+                window.location.href = 'events.html';
+                return;
+            }
+            
             loadBanners();
         });
 
@@ -467,10 +480,13 @@
                             </div>
                         </div>
                         <div class="banner-card-footer">
-                            <button class="btn ${toggleBtnClass}" onclick="toggleStatus(${banner.id}, ${banner.status})">
-                                ${toggleBtnText}
-                            </button>
-                            <button class="btn btn-danger" onclick="deleteBanner(${banner.id})" title="Delete">
+                            <div class="form-check form-switch mb-0">
+                                <input class="form-check-input" type="checkbox" role="switch" id="statusSwitch-${banner.id}" ${banner.status ? 'checked' : ''} onchange="toggleStatus(${banner.id}, ${banner.status})">
+                                <label class="form-check-label mb-0 ms-1 fw-semibold text-secondary" for="statusSwitch-${banner.id}" style="cursor: pointer; font-size: 0.85rem;">
+                                    ${banner.status ? 'Active' : 'Inactive'}
+                                </label>
+                            </div>
+                            <button class="btn btn-sm btn-outline-danger px-3" onclick="deleteBanner(${banner.id}, '${banner.image_url || ''}', '${banner.pdf_url || ''}')" title="Delete">
                                  <i class="fas fa-trash-alt"></i> Delete
                             </button>
                         </div>
@@ -491,14 +507,51 @@
         };
 
         // Delete Banner
-        window.deleteBanner = async (id) => {
+        window.deleteBanner = async (id, imageUrl, pdfUrl) => {
             if (!confirm('Are you sure you want to delete this banner?')) return;
-            const { error } = await supabaseClient
-                .from('banners')
-                .delete()
-                .eq('id', id);
-            if (!error) loadBanners();
-            else alert('Error deleting banner: ' + error.message);
+            try {
+                // Delete image file from storage if it exists and is in the sliderimages bucket
+                if (imageUrl && imageUrl.includes(BUCKET_NAME)) {
+                    try {
+                        const urlObj = new URL(imageUrl);
+                        const parts = urlObj.pathname.split('/');
+                        const fileName = parts.pop();
+                        const folder = parts.pop();
+                        await supabaseClient.storage
+                            .from(BUCKET_NAME)
+                            .remove([`${folder}/${fileName}`]);
+                    } catch (e) {
+                        console.error('Failed to delete image file from storage:', e);
+                    }
+                }
+
+                // Delete PDF file from storage if it exists and is in the sliderimages bucket
+                if (pdfUrl && pdfUrl.includes(BUCKET_NAME)) {
+                    try {
+                        const urlObj = new URL(pdfUrl);
+                        const parts = urlObj.pathname.split('/');
+                        const fileName = parts.pop();
+                        const folder = parts.pop();
+                        await supabaseClient.storage
+                            .from(BUCKET_NAME)
+                            .remove([`${folder}/${fileName}`]);
+                    } catch (e) {
+                        console.error('Failed to delete PDF file from storage:', e);
+                    }
+                }
+
+                const { error } = await supabaseClient
+                    .from('banners')
+                    .delete()
+                    .eq('id', id);
+                if (!error) {
+                    loadBanners();
+                } else {
+                    alert('Error deleting banner: ' + error.message);
+                }
+            } catch (err) {
+                alert('Error: ' + err.message);
+            }
         };
     </script>
 </body>

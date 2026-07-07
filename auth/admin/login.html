@@ -77,8 +77,19 @@
                 errorMsg.style.display = 'block';
             } else {
                 errorMsg.style.display = 'none';
-                // Redirect to banner management page
-                window.location.href = 'banner.html';
+                // Fetch role from users table
+                const { data: userData } = await supabaseClient
+                    .from('users')
+                    .select('role')
+                    .eq('uid', data.session.user.id)
+                    .single();
+                
+                const role = userData?.role || 'admin';
+                if (role === 'manager') {
+                    window.location.href = 'events.html';
+                } else {
+                    window.location.href = 'banner.html';
+                }
             }
         });
 
@@ -86,7 +97,18 @@
         window.addEventListener('DOMContentLoaded', async () => {
             const { data: { session } } = await supabaseClient.auth.getSession();
             if (session) {
-                window.location.href = 'banner.html';
+                const { data: userData } = await supabaseClient
+                    .from('users')
+                    .select('role')
+                    .eq('uid', session.user.id)
+                    .single();
+                    
+                const role = userData?.role || 'admin';
+                if (role === 'manager') {
+                    window.location.href = 'events.html';
+                } else {
+                    window.location.href = 'banner.html';
+                }
             }
         });
     </script>
