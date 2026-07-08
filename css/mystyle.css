@@ -253,14 +253,18 @@ header .container .collegesub {
 
 }
 
-.tickercolor {
+.tickercolor,
+.tickercolor:visited,
+.tickercolor:active,
+.tickercolor:focus {
 	color: white;
 	font-weight: bold;
 	font-size: 17px;
+	text-decoration: none;
 }
 
-.tickercolor :hover {
-	color: red;
+.tickercolor:hover {
+	color: yellow;
 }
 
 .footertxt {

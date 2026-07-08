@@ -38,7 +38,6 @@
             background: #0f2742;
             color: #fff;
             padding: 20px 0;
-            margin-bottom: 40px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, .15);
         }
 
@@ -154,6 +153,33 @@
         .event-actions .btn {
             margin-left: 5px;
         }
+
+        /* Navbar styles for Admin */
+        .navbar {
+            padding: 14px 0;
+            font-size: 18px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            border-radius: 8px;
+            margin-right: 8px;
+            transition: .25s;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, .15);
+        }
+
+        .nav-link.active {
+            background: #fff;
+            color: #0d6efd !important;
+        }
+
+        .bg-nav {
+            background: #1c3655;
+        }
     </style>
 </head>
 
@@ -195,6 +221,39 @@
             </div>
         </div>
     </header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-nav shadow-sm mb-4" id="adminNavbar" style="display: none;">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="banner.html">
+                            <i class="fas fa-images me-1"></i>
+                            Banner
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="events.html">
+                            <i class="fas fa-calendar-alt me-1"></i>
+                            Event
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="marquee.html">
+                            <i class="fas fa-bullhorn me-1"></i>
+                            Marquee
+                        </a>
+                    </li>
+                </ul>
+                <button class="btn btn-light btn-sm" id="navLogoutBtn">
+                    <i class="fas fa-sign-out-alt me-1"></i>
+                    Logout
+                </button>
+            </div>
+        </div>
+    </nav>
     <div class="container">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2
@@ -283,7 +342,7 @@
                 return;
             }
 
-            // RBAC: Only Managers can access the events page (admins get redirected to banner)
+            // RBAC: Both manager and admin can access events.html
             const { data: userData } = await supabaseClient
                 .from('users')
                 .select('role')
@@ -291,19 +350,41 @@
                 .single();
 
             const role = userData?.role || 'admin';
-            if (role !== 'manager') {
-                window.location.href = 'banner.html';
+            if (role !== 'manager' && role !== 'admin') {
+                window.location.href = 'login.html';
                 return;
+            }
+
+            // If admin, show the navigation bar
+            if (role === 'admin') {
+                const navbar = document.getElementById('adminNavbar');
+                if (navbar) {
+                    navbar.style.display = 'block';
+                }
+                const logoutBtn = document.getElementById('logoutBtn');
+                if (logoutBtn) {
+                    logoutBtn.style.display = 'none';
+                }
             }
 
             loadEvents();
         });
 
-        // Logout
-        document.getElementById('logoutBtn').addEventListener('click', async () => {
+        // Logout function
+        async function handleLogout() {
             await supabaseClient.auth.signOut();
             window.location.href = 'login.html';
-        });
+        }
+
+        // Attach Logout Event Listeners
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', handleLogout);
+        }
+        const navLogoutBtn = document.getElementById('navLogoutBtn');
+        if (navLogoutBtn) {
+            navLogoutBtn.addEventListener('click', handleLogout);
+        }
 
         // Upload Form Submit
         document.getElementById('uploadForm').addEventListener('submit', async (e) => {

@@ -10,8 +10,51 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
-            background-color: #fcfcfc;
-            padding-top: 40px;
+            background: #f4f6f9;
+        }
+
+        .section-container {
+            background: #fff;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+        }
+
+        .navbar {
+            padding: 14px 0;
+            font-size: 18px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+
+        }
+
+        .nav-link {
+            font-weight: 500;
+            border-radius: 8px;
+            margin-right: 8px;
+            transition: .25s;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, .15);
+        }
+
+        .nav-link.active {
+            background: #fff;
+            color: #0d6efd !important;
+        }
+
+        .banner-card {
+            transition: .3s;
+        }
+
+        .banner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
+        }
+
+        body {
+            background: #f4f6f9;
         }
 
         .section-container {
@@ -170,22 +213,170 @@
             background-color: #157347;
             color: white;
         }
+
+        /* ===========================
+   College Header
+=========================== */
+
+        .college-header {
+            background: #0f2742;
+            color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, .15);
+        }
+
+        .header-logo {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
+
+        .college-title {
+            font-size: 2.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .college-subtitle {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .college-grade {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .college-place {
+            color: #ffd84d;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .bg-nav {
+            background: #1c3655;
+
+        }
+
+        /* Mobile Responsive */
+
+        @media (max-width:768px) {
+
+            .header-logo {
+                width: 60px;
+                height: 60px;
+            }
+
+            .college-title {
+                font-size: 1.3rem;
+            }
+
+            .college-subtitle {
+                font-size: .9rem;
+            }
+
+            .college-grade {
+                font-size: .85rem;
+            }
+
+            .college-place {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <header class="college-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
 
-    <div class="container">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 style="font-weight: 600; color: #333;">Carousel Administration</h2>
-            <button class="btn btn-outline-secondary btn-sm" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>
-                Logout</button>
+                <!-- Left Logo -->
+                <div class="col-2 text-center">
+                    <img src="../../img/logo/tamil_logo.png" alt="College Logo" class="header-logo">
+                </div>
+
+                <!-- College Details -->
+                <div class="col-8 text-center">
+                    <h1 class="college-title">
+                        Rajah Serfoji Government College (Autonomous)
+                    </h1>
+
+                    <h4 class="college-subtitle">
+                        [ Affiliated To Bharathidasan University, Tiruchirappalli - Tamil Nadu ]
+                    </h4>
+
+                    <h5 class="college-grade">
+                        (NAAC 'A' Grade & DST-FIST Institution)
+                    </h5>
+
+                    <h3 class="college-place">
+                        Thanjavur - 613005
+                    </h3>
+                </div>
+
+                <!-- Right Logo -->
+                <div class="col-2 text-center">
+                    <img src="../../img/logo/logo_new1.png" alt="NAAC Logo" class="header-logo">
+                </div>
+
+            </div>
         </div>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-nav shadow-sm">
+        <div class="container-fluid">
+
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav me-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="banner.html">
+                            <i class="fas fa-images me-1"></i>
+                            Banner
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="events.html">
+                            <i class="fas fa-calendar-alt me-1"></i>
+                            Event
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="marquee.html">
+                            <i class="fas fa-bullhorn me-1"></i>
+                            Marquee
+                        </a>
+                    </li>
+
+                </ul>
+
+                <button class="btn btn-light btn-sm" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt me-1"></i>
+                    Logout
+                </button>
+
+            </div>
+
+        </div>
+    </nav>
+    <div class="container">
+
 
         <!-- Add Banner Section -->
         <div class="section-container">
             <div class="section-header">
-                <h4><i class="fas fa-layer-group" style="color:#f25a5a;"></i> Add Banner</h4>
+                <h4><i class="fas fa-layer-group" style="color:#f25a5a;text-align: center;"></i> Add Banner</h4>
             </div>
             <div class="divider"></div>
 
@@ -267,20 +458,20 @@
                 window.location.href = 'login.html';
                 return;
             }
-            
+
             // RBAC: Managers cannot access the banner page
             const { data: userData } = await supabaseClient
                 .from('users')
                 .select('role')
                 .eq('uid', session.user.id)
                 .single();
-                
+
             const role = userData?.role || 'admin';
             if (role === 'manager') {
                 window.location.href = 'events.html';
                 return;
             }
-            
+
             loadBanners();
         });
 
