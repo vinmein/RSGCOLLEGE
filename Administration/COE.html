@@ -43,6 +43,167 @@ College ,rsgc,government college,Thanjavur,serfoji,Thanjavur pride,Rsgc.ac.in">
     <link rel="stylesheet" type="text/css" href="../revolution/css/layers.css" />
     <link rel="stylesheet" type="text/css" href="../revolution/css/navigation.css" />
     <title>Rajah Serfoji Government College</title>
+    <style>
+        .coe-card-col {
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        .coe-profile-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid #e2e8f0;
+            border-top: 4px solid #c00404;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.07), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .coe-profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 32px -8px rgba(192, 4, 4, 0.16), 0 10px 15px -5px rgba(0, 0, 0, 0.05);
+            border-color: #fca5a5;
+        }
+
+        .coe-img-frame {
+            position: relative;
+            width: 170px;
+            height: 195px;
+            min-width: 170px;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+            border: 4px solid #ffffff;
+            outline: 2px solid #c00404;
+            outline-offset: -2px;
+            background: #f8fafc;
+            flex-shrink: 0;
+        }
+
+        .coe-img-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .coe-profile-card:hover .coe-img-frame img {
+            transform: scale(1.06);
+        }
+
+        .coe-badge-overlay {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #c00404 0%, #8b0000 100%);
+            color: #ffffff !important;
+            font-size: 10.5px !important;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            padding: 3px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .coe-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .coe-role-tag {
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: #c00404;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .coe-name {
+            font-size: 19px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .coe-degree-pill {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            color: #7c2d12;
+            background: #ffedd5;
+            border: 1px solid #fed7aa;
+            padding: 2px 10px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            word-break: break-word;
+        }
+
+        .coe-designation {
+            font-size: 14.5px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            line-height: 1.35;
+        }
+
+        .coe-designation i {
+            color: #c00404;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .coe-dept {
+            font-size: 13.5px;
+            color: #64748b;
+            margin-bottom: 0;
+            line-height: 1.4;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .coe-dept i {
+            color: #94a3b8;
+            margin-top: 3px;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 767px) {
+            .coe-profile-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 24px 18px;
+            }
+
+            .coe-designation,
+            .coe-dept {
+                justify-content: center;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -664,51 +825,50 @@ College ,rsgc,government college,Thanjavur,serfoji,Thanjavur pride,Rsgc.ac.in">
                     genuine requests of students are promptly attended to</p>
 
 
-                <!-- <div class="col-12 col-lg-6 margin-one-top">
-                    <div class="col-12 col-lg-12">
-                        <div class="mycontainer" style="height:160px">
-                            <img src="../img/staff/COE/controller.jpg" alt="Avatar" data-no-retina="" width="25%">
-                            <p class="margin-one-bottom" style="font-size:14px"> <i
-                                    class=" line-icon-Administrator "></i>Dr.P.Jayakumar,<span
-                                    style="font-size:9px;color:coral">M.A., M.Phil., M.Ed, PGDCA,
-                                    Ph.D.,
-                                </span> </p>
-
-                            <p class="margin-one-bottom" style="font-size:14px;line-height: 20px;">Controller of
-                                Examinations</p>
-                            <p class="margin-one-bottom" style="font-size:14px"> Associate Professor & H.O.D of
-                                Economics </p>
+                <div class="col-12 col-lg-6 coe-card-col">
+                    <div class="coe-profile-card">
+                        <div class="coe-img-frame">
+                            <img src="../img/staff/COE/controller.jpg"
+                                alt="Dr. R. Varatharaja - Controller of Examinations">
+                            <span class="coe-badge-overlay">COE</span>
                         </div>
-
-
-                    </div>
-
-
-
-                </div> -->
-
-                <div class="col-12 col-lg-6 margin-one-top">
-                    <div class="col-12 col-lg-12">
-                        <div class="mycontainer" style="height:160px">
-                            <img src="../img/staff/COE/asstcontroller.jpg" alt="Avatar" data-no-retina="" width="25%">
-                            <p class="margin-one-bottom" style="font-size:14px"> <i
-                                    class=" line-icon-Administrator"></i>Dr.N.Rajesh <span
-                                    style="font-size:9px;color:coral">M.Sc., M.Phil., Ph.D. </span> </p>
-                            <p class="margin-one-bottom" style="font-size:14px;line-height: 20px;"> Deputy Controller of
-                                Examinations</p>
-                            <p class="margin-one-bottom" style="font-size:14px">Assistant Professor of Mathematics </p>
-
-                            <!-- <p class="margin-one-bottom"><a href="mailto:mgurupackiam@rsgc.ac.in"><i
-                                           class="  line-icon-Email "></i> mgurupackiam@rsgc.ac.in</a> </p> -->
-
-                            </p>
+                        <div class="coe-info">
+                            <!-- <span class="coe-role-tag">Executive Official</span> -->
+                            <h6 class="coe-name">Dr. R. Varatharaja</h6>
+                            <span class="coe-degree-pill">M.A(TAM).,M.A(MCJ).,B.Ed.,M.Phil.,Ph.D.</span>
+                            <div class="coe-designation">
+                                <i class="line-icon-Administrator"></i>
+                                <span>Controller of Examinations</span>
+                            </div>
+                            <div class="coe-dept">
+                                <i class="fa fa-university"></i>
+                                <span>Associate Professor of Tamil</span>
+                            </div>
                         </div>
-
-
                     </div>
+                </div>
 
-
-
+                <div class="col-12 col-lg-6 coe-card-col">
+                    <div class="coe-profile-card">
+                        <div class="coe-img-frame">
+                            <img src="../img/staff/COE/assistantcoe.jpg"
+                                alt="Dr. N. Rajesh - Deputy Controller of Examinations">
+                            <span class="coe-badge-overlay">Deputy COE</span>
+                        </div>
+                        <div class="coe-info">
+                            <!-- <span class="coe-role-tag">Executive Official</span> -->
+                            <h6 class="coe-name">Dr. C. Muruganandam</h6>
+                            <span class="coe-degree-pill">M.Sc., M.Phil., SET.,Ph.D.</span>
+                            <div class="coe-designation">
+                                <i class="line-icon-Administrator"></i>
+                                <span>Deputy Controller of Examinations</span>
+                            </div>
+                            <div class="coe-dept">
+                                <i class="fa fa-university"></i>
+                                <span>Assistant Professor of Computer Science</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="table-responsive" style="margin-top: 20px;">
@@ -731,19 +891,42 @@ College ,rsgc,government college,Thanjavur,serfoji,Thanjavur pride,Rsgc.ac.in">
 
 
                                 <td scope="row">1</td>
+                                <td>Dr.R.Varatharaja,M.A(TAM).,M.A(MCJ).,B.Ed., M.Phil.,Ph.D.,<br>
+                                    <span style="color:coral"> Department of Tamil
+                                    </span>
+                                </td>
+                                <td>From 15.04.2026 to till Date</td>
+
+                            </tr>
+                            <tr>
+
+
+                                <td scope="row">2</td>
+                                <td>Dr.N.Rajesh,M.Sc., M.Phil.,
+                                    Ph.D.,(In-Charge)<br>
+                                    <span style="color:coral"> Department of Mathematics
+                                    </span>
+                                </td>
+                                <td>From 21.01.2026 to 15.04.2026</td>
+
+                            </tr>
+                            <tr>
+
+
+                                <td scope="row">3</td>
                                 <td>Dr.P.Jayakumar,M.A., M.Phil., M.Ed, PGDCA,
                                     Ph.D., <br>
                                     <span style="color:coral"> Department of Economics
                                     </span>
                                 </td>
-                                <td>From 26.02.2023 onwards</td>
+                                <td>From 26.02.2023 to 21.01.2026</td>
 
                             </tr>
 
                             <tr>
 
 
-                                <td scope="row">2</td>
+                                <td scope="row">4</td>
                                 <td>Dr.V.Pugazhenthi,M.Com.,M.B.A.,M.Phil.,Ph.D.,PGIM,PGDPM. <br>
                                     <span style="color:coral"> Department of Commerce
                                     </span>
@@ -755,7 +938,7 @@ College ,rsgc,government college,Thanjavur,serfoji,Thanjavur pride,Rsgc.ac.in">
 
                             <tr>
 
-                                <td scope="row">3 </td>
+                                <td scope="row">5</td>
                                 <td>Dr.N.Rajesh,M.Sc.,M.Phil.,Ph.D.,<br>
                                     <span style="color:coral"> (In-Charge) Department Of Mathematics
 
@@ -769,7 +952,7 @@ College ,rsgc,government college,Thanjavur,serfoji,Thanjavur pride,Rsgc.ac.in">
 
                             <tr>
 
-                                <td scope="row">4</td>
+                                <td scope="row">6</td>
                                 <td>Dr.D.Rosi,M.A., M.Phil.,B.Ed.,Ph.D., <br>
                                     <span style="color:coral"> Department Of Tamil
                                     </span>
@@ -782,7 +965,7 @@ College ,rsgc,government college,Thanjavur,serfoji,Thanjavur pride,Rsgc.ac.in">
 
                             <tr>
 
-                                <td scope="row">5</td>
+                                <td scope="row">7</td>
                                 <td>Dr.N.Rajesh,M.Sc.,M.Phil.,Ph.D.,<br>
                                     <span style="color:coral"> (In-Charge) Department Of Mathematics
                                     </span>
@@ -795,7 +978,7 @@ College ,rsgc,government college,Thanjavur,serfoji,Thanjavur pride,Rsgc.ac.in">
 
                             <tr>
 
-                                <td scope="row">6</td>
+                                <td scope="row">8</td>
                                 <td>Dr.T.Arivudai Nambi,M.Sc., M.Phil.,B.Ed.,PGDCA.,Ph.D., <br>
                                     <span style="color:coral">Department Of Physics</span>
 
@@ -808,7 +991,7 @@ College ,rsgc,government college,Thanjavur,serfoji,Thanjavur pride,Rsgc.ac.in">
 
                             <tr>
 
-                                <td scope="row">7</td>
+                                <td scope="row">9</td>
                                 <td>Mr.S.Ramesh, M.Sc., M.Phil.,<br>
                                     <span style="color:coral"> Department Of Physics
                                     </span>
@@ -822,7 +1005,7 @@ College ,rsgc,government college,Thanjavur,serfoji,Thanjavur pride,Rsgc.ac.in">
 
                             <tr>
 
-                                <td scope="row">8</td>
+                                <td scope="row">10</td>
                                 <td>Dr.N.Rajaraman,M.Sc.,M.Phil., Ph.D.,<br>
                                     <span style="color:coral"> Department Of Physics</span>
 
@@ -837,7 +1020,7 @@ College ,rsgc,government college,Thanjavur,serfoji,Thanjavur pride,Rsgc.ac.in">
 
                             <tr>
 
-                                <td scope="row">9</td>
+                                <td scope="row">11</td>
                                 <td>Mr.S.Ramesh, M.Sc., M.Phil.,<br>
                                     <span style="color:coral">(In-Charge) ,Department Of Physics</span>
 
@@ -852,7 +1035,7 @@ College ,rsgc,government college,Thanjavur,serfoji,Thanjavur pride,Rsgc.ac.in">
 
                             <tr>
 
-                                <td scope="row">10</td>
+                                <td scope="row">12</td>
                                 <td>Mr.G.Shanmugam, M.Sc., M.Phil.,<br>
                                     <span style="color:coral">Department Of Chemistry</span>
 
@@ -868,7 +1051,7 @@ College ,rsgc,government college,Thanjavur,serfoji,Thanjavur pride,Rsgc.ac.in">
 
                             <tr>
 
-                                <td scope="row">11</td>
+                                <td scope="row">13</td>
                                 <td>Dr.G.Sridharan,M.Sc., M.Phil., Ph.D.,<br>
                                     <span style="color:coral"> (In-Charge),Department Of Zoology
 
@@ -884,7 +1067,7 @@ College ,rsgc,government college,Thanjavur,serfoji,Thanjavur pride,Rsgc.ac.in">
 
                             <tr>
 
-                                <td scope="row">12</td>
+                                <td scope="row">14</td>
                                 <td>Mr.S.Jayabaskaran Charles, M.A., M.Phil.,<br>
                                     <span style="color:coral"> Department Of English</span>
 
@@ -900,7 +1083,7 @@ College ,rsgc,government college,Thanjavur,serfoji,Thanjavur pride,Rsgc.ac.in">
 
                             <tr>
 
-                                <td scope="row">13</td>
+                                <td scope="row">15</td>
                                 <td>Mr.S.Thirunavukkarasu M.Com., M.Phil., <br>
                                     <span style="color:coral"> (In-Charge),
                                         Department Of Commerce</span>
@@ -916,7 +1099,7 @@ College ,rsgc,government college,Thanjavur,serfoji,Thanjavur pride,Rsgc.ac.in">
 
                             <tr>
 
-                                <td scope="row">14</td>
+                                <td scope="row">16</td>
                                 <td>Mr.S.Jayabaskaran Charles, M.A., M.Phil.,<br>
                                     <span style="color:coral"> Department Of English</span>
 
